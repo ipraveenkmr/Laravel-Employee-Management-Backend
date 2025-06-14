@@ -6,6 +6,11 @@ use App\Http\Controllers\EmployeeDetailsController;
 use App\Http\Controllers\AccountDetailsController;
 use App\Http\Controllers\ReferenceDetailsController;
 use App\Http\Controllers\OffboardingDetailsController;
+use App\Http\Controllers\AuthController;
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/users', [AuthController::class, 'index']);
 
 
 Route::apiResource('employees', EmployeeDetailsController::class);
