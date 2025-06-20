@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ReferenceDetailsController extends Controller
 {
+    public function index()
+    {
+        return ReferenceDetails::get();
+    }
     public function store(Request $request)
     {
         $reference = ReferenceDetails::create($request->all());

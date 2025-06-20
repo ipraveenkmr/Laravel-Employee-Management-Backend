@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AccountDetailsController extends Controller
 {
+    public function index()
+    {
+        return AccountDetails::get();
+    }
     public function store(Request $request)
     {
         $account = AccountDetails::create($request->all());
@@ -17,5 +21,10 @@ class AccountDetailsController extends Controller
     {
         $employeeAccount->update($request->all());
         return response()->json($employeeAccount);
+    }
+    public function show($id)
+    {
+        $account = AccountDetails::with('employeeDetails')->findOrFail($id);
+        return response()->json($account);
     }
 }

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class OffboardingDetailsController extends Controller
 {
+    public function index()
+    {
+        return OffboardingDetails::get();
+    }
     public function store(Request $request)
     {
         $offboarding = OffboardingDetails::create($request->all());

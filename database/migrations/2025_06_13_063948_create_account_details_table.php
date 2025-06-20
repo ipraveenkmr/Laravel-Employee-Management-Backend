@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('account_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_details_id')->constrained()->onDelete('cascade');
+            $table->string('email')->nullable();
             $table->string('pay_grade');
             $table->decimal('gross_salary', 15, 2);
             $table->decimal('net_salary', 15, 2)->nullable();

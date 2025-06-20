@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('reference_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_details_id')->constrained()->onDelete('cascade');
+            $table->string('email')->nullable();
             $table->string('reference_name');
-            $table->string('email');
+            $table->string('reference_email');
             $table->string('phone');
             $table->string('designation');
             $table->string('company_department');

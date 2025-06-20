@@ -15,9 +15,9 @@ Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logo
 
 
 Route::apiResource('employees', EmployeeDetailsController::class);
-Route::apiResource('employee-accounts', AccountDetailsController::class)->only(['store', 'update']);
-Route::apiResource('employee-references', ReferenceDetailsController::class)->only(['store', 'update', 'destroy']);
-Route::apiResource('employee-offboardings', OffboardingDetailsController::class)->only(['store', 'update']);
+Route::apiResource('employee-accounts', AccountDetailsController::class)->only(['index', 'store', 'update']);
+Route::apiResource('employee-references', ReferenceDetailsController::class)->only(['index', 'store', 'update', 'destroy']);
+Route::apiResource('employee-offboardings', OffboardingDetailsController::class)->only(['index', 'store', 'update']);
 
 
 Route::get('/user', function (Request $request) {
