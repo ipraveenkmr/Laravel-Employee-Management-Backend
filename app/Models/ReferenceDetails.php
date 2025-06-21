@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReferenceDetails extends Model
 {
     protected $fillable = [
-        'employee_details_id', 'reference_name', 'email', 'phone', 'designation', 'company_department'
+        'employee_details_id', 'email', 'reference_name', 'email', 'phone', 'designation', 'company_department'
     ];
 
     public function employee()
