@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('offboarding_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_details_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('employee_details_id')->unique();
+            $table->foreign('employee_details_id')
+                ->references('id')
+                ->on('employee_details')
+                ->onDelete('cascade');
             $table->string('email')->nullable();
             $table->date('resignation_date');
             $table->date('last_working_day');

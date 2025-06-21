@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('account_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_details_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('employee_details_id')->unique();
+            $table->foreign('employee_details_id')
+                ->references('id')
+                ->on('employee_details')
+                ->onDelete('cascade');
             $table->string('email')->nullable();
             $table->string('pay_grade');
             $table->decimal('gross_salary', 15, 2);
